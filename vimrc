@@ -1,3 +1,5 @@
+" Author: jasonliu10041728@gmail.com
+
 "vundle-setting.vim
 source ~/.vim/bundle/vundle_setting.vim
 
@@ -17,6 +19,7 @@ set tabstop=8  	      "Tab 8 blanks
 set softtabstop=4
 set shiftwidth=4
 
+set noscrollbind      " dont move same time
 if &filetype == 'python'
 	set expandtab
 else
@@ -27,14 +30,21 @@ set listchars=tab:>\ ,trail:-
 " set listchars=tab:>\ ,trail:-, space:·
 set list
 
-" ==============================================================================
+autocmd FileType qf wincmd J "Quickfix的窗口固定在下面
+
+"==============================================================================
 " color and fonts
 " ==============================================================================
 set t_Co=256          " 强制使用 256 色
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
+"let g:gruvbox_material_foreground = 'mix'
+"let g:gruvbox_material_background = 'soft'
+"let g:gruvbox_material_better_performance = 1
+"colorscheme gruvbox-material
 colorscheme gruvbox
+
 set background=dark
 set termguicolors     " 使用真彩色 (如果使用 24 位色彩)
 " set Vim-specific sequences for RGB colors
@@ -57,6 +67,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_powerline_fonts = 1
 "let g:airline_theme='onedark'
+"let g:airline_theme='google_dark'
 let g:airline_theme='desertink'
 let g:airline#extensions#default#section_truncate_width = {
    \ 'b': 79,
@@ -72,7 +83,7 @@ let g:airline#extensions#default#layout = [
 " ==============================================================================
 " NERDTree
 " ==============================================================================
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 35
 let g:NERDTreeWinPos = "left"
 noremap <silent> <leader>nn :NERDTreeToggle<CR>
 noremap <silent> <leader>nf :NERDTreeFind<CR>
@@ -99,12 +110,12 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " ==============================================================================
 nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
-let Tlist_WinWidth = 40
+let Tlist_WinWidth = 35
 let Tlist_Show_One_File = 1				"Tlist只显示一个文件
 
 nnoremap <silent> <leader>wm :NERDTreeToggle<CR> :TlistToggle<CR>
 
-" ==============================================================================
+" ==============================================================================================
 " cscope
 " ==============================================================================
 if has("cscope")
@@ -130,10 +141,20 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " ==============================================================================
 " cpp enhanced highlight
+" 这里打开会造成卡顿,以后再研究
 " ==============================================================================
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_concepts_highlight = 1
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_class_decl_highlight = 1
+"let g:cpp_posix_standard = 1
+"let g:cpp_experimental_simple_template_highlight = 1
+"let g:cpp_concepts_highlight = 1
+
+let g:vim_markdown_folding_disabled = 1
+
+
+" ==============================================================================
+" gerrit
+" ==============================================================================
+set colorcolumn=100
+

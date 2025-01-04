@@ -36,13 +36,14 @@ Plugin 'preservim/nerdtree'
 Plugin 'Yggdroot/LeaderF'
 " install color theme
 Plugin 'morhetz/gruvbox'
+Plugin 'sainnhe/gruvbox-material'
 
 Plugin 'luochen1990/rainbow'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdcommenter'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'dense-analysis/ale'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
