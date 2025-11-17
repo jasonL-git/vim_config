@@ -1,0 +1,49 @@
+{
+        "editor.fontFamily": "'JetBrains Mono','FiraCode Nerd Font', Consolas, 'Courier New', monospace",
+        // "editor.fontFamily": "'FiraCode Nerd Font', Consolas, 'Courier New', monospace",
+        "editor.fontSize": 15,
+        "editor.guides.bracketPairs": "active",
+        "editor.rulers": [
+                {
+                        "column": 100,
+                        "color": "#0563ef"
+                },
+                {
+                        "column": 120,
+                        "color": "#0563ef"
+                },
+        ],
+        "editor.fontLigatures": false,
+        "editor.renderWhitespace": "all",
+        "editor.tabSize": 8,
+        "workbench.tree.indent": 15,
+        "workbench.tree.renderIndentGuides": "always",
+        "workbench.colorTheme": "GitHub Dark",
+        // "workbench.colorTheme": "monokai-charcoal",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.colorCustomizations": {
+                "tree.inactiveIndentGuidesStroke": "#0563ef"
+        },
+        "workbench.editor.highlightModifiedTabs": true,
+        "terminal.integrated.fontSize": 15,
+        "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
+        "vscode-neovim.neovimExecutablePaths.linux": "nvim",
+        "vim.hlsearch": true,
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "stock-bar.stocks": [
+                "sh000001",
+                {
+                    "code": "sz300835",
+                    "alias": "龙磁",
+                    "hold_price": 0,
+                    "hold_number": 0
+                },
+                {
+                        "code": "sh600114",
+                        "alias": "东睦",
+                        "hold_price": 0,
+                        "hold_number": 0
+                },
+        ],
+        "C_Cpp.intelliSenseEngine": "Disabled",
+}
