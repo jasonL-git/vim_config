@@ -26,7 +26,7 @@ set cursorline              " 光标行高亮
 set hidden                  " 允许隐藏未保存buffer，方便切换
 
 " 自动进入当前文件目录（代替 autochdir，避免问题）
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 
 " --------------------------
 " 缩进与制表符设置
@@ -163,20 +163,32 @@ augroup END
 " ==============================================================================
 " cscope自动找cscope.out文件,并且将当前目录expand到cscope.out中
 " 这样cscope找的时候就是绝对路径
+" -----------------------------
+" 自动加载 Cscope 数据库
+" -----------------------------
 function! SetupCscope()
-  " 查找当前目录或父目录中的 cscope.out
-  let l:cscope_file = findfile("cscope.out", ".;")
-  if !empty(l:cscope_file)
-    " 清除所有旧数据库
-    silent! cs reset
-
-    " 只添加一份数据库
-    execute 'cs add ' . fnameescape(fnamemodify(l:cscope_file, ':p'))
-    echom "Loaded cscope database from: " . fnamemodify(l:cscope_file, ':p:h')
+  if exists("g:cscope_loaded") && g:cscope_loaded
+    return
   endif
+
+  let l:matches = glob('./cscope.out', 0, 1)
+  if empty(l:matches)
+    return
+  endif
+  silent! cs reset
+
+  let l:cscope_file = l:matches[0]
+  let l:cscope_abs = fnameescape(fnamemodify(l:cscope_file, ':p'))
+
+  " 绝对路径数据库不需要 prepend path
+  execute 'cs add ' . l:cscope_abs
+
+  let g:cscope_loaded = 1
+  silent! echo "Loaded cscope database: " . l:cscope_abs
 endfunction
 
-autocmd VimEnter * call SetupCscope()
+autocmd BufReadPost * call SetupCscope()
+set noautochdir
 
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>

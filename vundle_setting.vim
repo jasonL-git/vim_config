@@ -43,8 +43,13 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdcommenter'
 Plugin 'ludovicchabant/vim-gutentags'
-" Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'dense-analysis/ale'
+Plugin 'neovim/nvim-lspconfig'
+Plugin 'git@github.com:liuchengxu/vista.vim.git'
+Plugin 'git@github.com:preservim/tagbar.git'
+Plugin 'git@github.com:octol/vim-cpp-enhanced-highlight.git'
+Plugin 'git@github.com:junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'git@github.com:junegunn/fzf.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
